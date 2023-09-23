@@ -25,4 +25,4 @@ on the sign (`+` or `-`) of operation and multipling the $w \cdot c$ and $b \cdo
 Visually:
 - $f(w \cdot x + b)$
 - $f((w \cdot c) \cdot x + (b \cdot c)) = f(c \cdot (w \cdot x + b))$
-- $f(w \cdot x + b) = f(c \cdot (w \cdot x + b))
+- $f(w \cdot x + b) = f(c \cdot (w \cdot x + b))$
