@@ -1,4 +1,5 @@
 import logging
+import math
 from random import randint
 
 
@@ -90,21 +91,34 @@ def multiply_lst_by_const(lst_in, constant_in):
 
 
 def get_perceptron_output(inputs, weights, bias):
-    assert len(inputs) == len(weights)
-
-    result = 0
-    for i in range(len(inputs)):
-        result += inputs[i] * weights[i]
-    logging.debug(f"Results before applying bias {result}")
-
-    result += bias
-    logging.debug(f"Results before thresholding {result}")
+    result = get_output_non_activated(inputs, weights, bias)
 
     # if output positive - class 1, else class 0
     if result > 0:
         return 1
     else:
         return 0
+
+
+def get_output_non_activated(inputs, weights, bias, filter_zero=False):
+    assert len(inputs) == len(weights)
+
+    result = 0
+    for i in range(len(inputs)):
+        result += inputs[i] * weights[i]
+        if math.isnan(result):
+            result = 0
+
+    logging.debug(f"Results before applying bias {result}")
+
+    result += bias
+    if math.isnan(result):
+        result = 0
+    logging.debug(f"Results before thresholding {result}")
+
+    if filter_zero and result == 0:
+        raise ValueError("The output should not be 0")
+    return result
 
 
 def get_network_level_output(inputs, weights_level, biases_level):

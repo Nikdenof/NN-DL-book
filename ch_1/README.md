@@ -29,6 +29,9 @@ Visually:
 
 
 ## Sigmoid neurons simulating perceptrons, part II
+
+### Task
+
 Suppose we have the same setup as the last problem - a network of perceptrons. 
 Suppose also that the overall input to the network of perceptrons has been chosen. 
 We won't need the actual input value, we just need the input to have been fixed. 
