@@ -2,7 +2,6 @@ import logging
 import math
 from ex_0 import (
     get_output_non_activated,
-    get_perceptron_output,
     generate_wb_layer,
     get_network_level_output,
     get_wb_multiplied,
