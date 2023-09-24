@@ -26,3 +26,15 @@ Visually:
 - $f(w \cdot x + b)$
 - $f((w \cdot c) \cdot x + (b \cdot c)) = f(c \cdot (w \cdot x + b))$
 - $f(w \cdot x + b) = f(c \cdot (w \cdot x + b))$
+
+
+## Sigmoid neurons simulating perceptrons, part II
+Suppose we have the same setup as the last problem - a network of perceptrons. 
+Suppose also that the overall input to the network of perceptrons has been chosen. 
+We won't need the actual input value, we just need the input to have been fixed. 
+Suppose the weights and biases are such that w⋅x+b≠0 for the input x to any 
+particular perceptron in the network. Now replace all the perceptrons in the 
+network by sigmoid neurons, and multiply the weights and biases by a positive 
+constant c>0. Show that in the limit as c→∞ the behaviour of this network of 
+sigmoid neurons is exactly the same as the network of perceptrons. How can this 
+fail when w⋅x+b=0 for one of the perceptrons? 
