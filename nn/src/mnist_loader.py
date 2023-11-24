@@ -10,8 +10,10 @@ function usually called by our neural network code.
 
 #### Libraries
 # Standard library
-import cPickle
+#import _pickle as cPickle
+import pickle
 import gzip
+import os
 
 # Third-party libraries
 import numpy as np
@@ -39,9 +41,10 @@ def load_data():
     That's done in the wrapper function ``load_data_wrapper()``, see
     below.
     """
-    f = gzip.open('../data/mnist.pkl.gz', 'rb')
-    training_data, validation_data, test_data = cPickle.load(f)
-    f.close()
+    mnist_relpath ='../data/mnist.pkl.gz' 
+    print(f"Opening MNIST dataset at {os.path.abspath(mnist_relpath)}")
+    f = gzip.open(mnist_relpath)
+    training_data, validation_data, test_data = pickle.load(f, encoding="latin1")
     return (training_data, validation_data, test_data)
 
 def load_data_wrapper():
