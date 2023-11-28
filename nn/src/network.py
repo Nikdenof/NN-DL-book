@@ -50,9 +50,10 @@ class Network(object):
         epoch, and partial progress printed out.  This is useful for
         tracking progress, but slows things down substantially."""
         if test_data:
+            test_data = list(test_data)
             n_test = len(test_data)
-        n = len(training_data)
         training_data = list(training_data)
+        n = len(training_data)
         for j in range(epochs):
             random.shuffle(training_data)
             mini_batches = [
