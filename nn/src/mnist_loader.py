@@ -45,6 +45,7 @@ def load_data():
     print(f"Opening MNIST dataset at {os.path.abspath(mnist_relpath)}")
     f = gzip.open(mnist_relpath)
     training_data, validation_data, test_data = pickle.load(f, encoding="latin1")
+    f.close()
     return (training_data, validation_data, test_data)
 
 def load_data_wrapper():
